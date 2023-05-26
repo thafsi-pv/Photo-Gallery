@@ -1,0 +1,110 @@
+.photo-gallery-conatiner {
+  max-width: 700px;
+  background-color: white;
+}
+.title {
+  margin-bottom: 50px;
+}
+.title p {
+  color: lightgray;
+}
+.title h2 {
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 59px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+.gallery-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 50px;
+}
+.img-container {
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: center;
+  height: 350px;
+  overflow-y: scroll;
+}
+.image {
+  width: 30%;
+  height: 200px;
+  object-fit: fill;
+}
+img {
+  max-width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+p {
+  margin: 5px;
+}
+h2 {
+  margin: 5px;
+}
+
+.file-input-wrapper {
+  display: inline-block;
+  /* position: relative; */
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #eed8c0;
+  color: #eed8c0;
+  text-align: center;
+  line-height: 35px;
+  cursor: pointer;
+}
+
+.file-input-wrapper i {
+  font-size: 48px;
+}
+
+input[type="file"] {
+  display: none;
+}
+progress{
+    width: 100%;
+}
+.input-wrapper{
+    margin-bottom: 30px;
+}
+
+progress {
+  width: 90%;
+  height : 5px;
+  border: 1px solid #eed8c0;
+  border-radius: 150px;
+}
+progress::-webkit-progress-bar {
+  background-color: #d0d0d0 !important;
+}
+progress::-webkit-progress-value {
+  background-color: #eed8c0 !important;
+}
+
+@media (max-width:720px) {
+  .title h2 {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 39px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+  .title p{
+    font-size: x-small;
+  }
+  .gallery-wrapper{
+    padding: 10px;
+  }
+  .image {
+    width: 30%;
+    height: 100px;
+    object-fit: fill;
+  }
+}
