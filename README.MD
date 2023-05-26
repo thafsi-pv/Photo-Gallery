@@ -10,6 +10,7 @@ This is a simple photo gallery app built using React and Node.js. Users can uplo
 
 - Upload photos
 - View photos in a modal
+- Image upload progress bar
 
 ## Technologies Used
 
