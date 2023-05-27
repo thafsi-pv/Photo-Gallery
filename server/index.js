@@ -26,11 +26,11 @@ const storage = multer.diskStorage({
 
 const upload = multer({
   storage: storage, // Define the onProgress method to store progress updates in a global variable
-//   onProgress: (progressEvent) => {
-//     uploadProgress.value = Math.round(
-//       (progressEvent.loaded / progressEvent.total) * 100
-//     );
-//   },
+  //   onProgress: (progressEvent) => {
+  //     uploadProgress.value = Math.round(
+  //       (progressEvent.loaded / progressEvent.total) * 100
+  //     );
+  //   },
 });
 
 app.get("/api/getimages", (req, res) => {
@@ -49,11 +49,31 @@ app.post("/api/upload", upload.single("upload_file"), (req, res) => {
   console.log("req.body", req.body);
   console.log("req.file", req.file);
 
-  //   const data = JSON.parse(imgJson);
-  imgJson.push({ id: uuidv4(), fileName: req.file.filename });
-  fs.writeFileSync("./imageGallery.json", JSON.stringify(imgJson));
+  const delay = Math.floor(Math.random() * 3000) + 1000; // random delay of 1-4 seconds
+  const uploadPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (!req.file) {
+        reject("Error uploading file.");
+      } else {
+        resolve("File uploaded successfully.");
+      }
+    }, delay);
+  });
 
-  res.status(200).json({ message: "image uploaded" });
+  uploadPromise
+    .then((response) => {
+      console.log(response);
+
+      //   const data = JSON.parse(imgJson);
+      imgJson.push({ id: uuidv4(), fileName: req.file.filename });
+      fs.writeFileSync("./imageGallery.json", JSON.stringify(imgJson));
+
+      res.status(200).json({ message: "image uploaded" });
+    })
+    .catch((error) => {
+      console.error(error);
+      res.sendStatus(500);
+    });
 });
 
 const PORT = 3008;

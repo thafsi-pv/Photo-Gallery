@@ -15,16 +15,6 @@ const PhotoGallery = () => {
     getUploadedImages();
   }, [selectedFile]);
 
-  // useEffect(() => {
-  //   const interval = setInterval(async () => {
-  //     const response = await axios("http://localhost:3008/api/uploadprogress");
-  //     setProgress(response.data);
-  //   }, 500);
-  //   return () => {
-  //     clearInterval(interval);
-  //   };
-  // }, []);
-
   const getUploadedImages = async () => {
     const response = await axios("http://localhost:3008/api/getimages", {
       method: "GET",
@@ -55,7 +45,7 @@ const PhotoGallery = () => {
       },
     });
     if (response.status == 200) {
-       setSelectedFile("");
+      setSelectedFile("");
       setProgress(0);
     }
   };
@@ -99,6 +89,9 @@ const PhotoGallery = () => {
               <progress id="file" value={progress} max="100">
                 82%
               </progress>
+              <span>
+                <p>{progress}%</p>
+              </span>
             </div>
           </div>
         </div>

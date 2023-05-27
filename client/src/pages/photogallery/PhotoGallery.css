@@ -69,27 +69,41 @@ h2 {
 input[type="file"] {
   display: none;
 }
-progress{
-    width: 100%;
+
+.progress-bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
-.input-wrapper{
-    margin-bottom: 30px;
+
+.progress-bar span {
+  font-size: small;
+  margin: 20px;
+  width: 40px;
+  font-weight: 600;
+}
+progress {
+  width: 100%;
+  flex: 1;
+}
+.input-wrapper {
+  margin-bottom: 30px;
 }
 
 progress {
   width: 90%;
-  height : 5px;
+  height: 5px;
   border: 1px solid #eed8c0;
   border-radius: 150px;
 }
 progress::-webkit-progress-bar {
-  background-color: #d0d0d0 !important;
+  background-color: #000000 !important;
 }
 progress::-webkit-progress-value {
   background-color: #eed8c0 !important;
 }
 
-@media (max-width:720px) {
+@media (max-width: 720px) {
   .title h2 {
     font-size: 20px;
     font-weight: 400;
@@ -97,10 +111,10 @@ progress::-webkit-progress-value {
     letter-spacing: 0em;
     text-align: center;
   }
-  .title p{
+  .title p {
     font-size: x-small;
   }
-  .gallery-wrapper{
+  .gallery-wrapper {
     padding: 10px;
   }
   .image {
